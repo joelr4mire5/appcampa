@@ -34,7 +34,7 @@ lista_equipos=data["equipo"].unique().tolist()
 
 
 
-st.title("Campamento Legionarios Invencibles 2024")
+st.title("Campamento Legionarios Invencibles 2024444")
 equipo_seleccionado=st.selectbox("Seleccionar Equipo",lista_equipos)
 
 data=data[data["equipo"]==equipo_seleccionado]
