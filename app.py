@@ -67,7 +67,7 @@ session = Session()
 
 
 
-col1,col2 = st.columns(2)
+col1,col2,col3 = st.columns(3)
 
 # Create a button to increment the total value
 if col1.button("Añadir"):
@@ -96,23 +96,25 @@ if col2.button("Restar"):
     st.write(f" Se restó un punto a {nombre_selecccionado} en la categoria de {categorias} a las {timestamp}")
 
 
+if col3.button("Mostrar resultados"):
+    query_puntajes = f"SELECT * FROM {table_name2};"
+    data_puntajes = pd.read_sql_query(query, engine)
+
+    overalldata = data.merge(data_puntajes, on='nombrecompleto')
+
+    puntajesequipo = overalldata('equipo')['puntaje'].sum()
+
+    puntajescampistas = overalldata('campista')['puntaje'].sum()
+
+    st.write(puntajescampistas)
+    st.dataframe(puntajescampistas)
+
 
 
 
 #dashboard
 
-query_puntajes = f"SELECT * FROM {table_name2};"
-data_puntajes= pd.read_sql_query(query, engine)
 
-overalldata=data.merge(data_puntajes,on='nombrecompleto')
-
-puntajesequipo=overalldata('equipo')['puntaje'].sum()
-
-puntajescampistas=overalldata('campista')['puntaje'].sum()
-
-
-st.write(puntajescampistas)
-st.dataframe(puntajescampistas)
 
 
 
