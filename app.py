@@ -82,8 +82,6 @@ if col1.button("Añadir"):
     st.write(f" Se agregó un punto a {nombre_selecccionado} en la categoria de {categorias} a las {timestamp}")
 
 
-    # Increment the total value by 1 when the button is clicked
-
 
 
 if col2.button("Restar"):
@@ -99,7 +97,21 @@ if col2.button("Restar"):
 
 
 
-# Update the session state to store the current total value
+
+
+#dashboard
+
+query_puntajes = f"SELECT * FROM {table_name2};"
+data_puntajes= pd.read_sql_query(query, engine)
+
+overalldata=data.merge(data_puntajes,on='nombrecompleto')
+
+puntajesequipo=overalldata('equipo')['puntaje'].sum()
+
+puntajescampistas=overalldata('campista')['puntaje'].sum()
+
+
+st.write(puntajescampistas)
 
 
 
