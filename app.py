@@ -3,15 +3,24 @@ import pandas as pd
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, DATETIME
 from sqlalchemy.orm import sessionmaker
 import datetime
+import numpy as np
 
 
+#online
 
+# dbname = "postgres"
+#
+# user = "postgres"
+# password = "Exomeza1995"
+# host = "legendarios-rds.cn4ckqii4e2h.us-east-1.rds.amazonaws.com"
+# port = "5432"
 
-dbname = "postgres"
+#local
+dbname = "campamento"
 
 user = "postgres"
-password = "Exomeza1995"
-host = "legendarios-rds.cn4ckqii4e2h.us-east-1.rds.amazonaws.com"
+password = "Team.Lead#2023"
+host = "localhost"
 port = "5432"
 
 
@@ -27,14 +36,16 @@ query = f"SELECT * FROM {table_name};"
 table_name2="puntajes"
 
 # Use the engine to execute the query and fetch data into a DataFrame
+
+
 data = pd.read_sql_query(query, engine)
 
-
+data_campistas=data
 lista_equipos=data["equipo"].unique().tolist()
 
 
 
-st.title("Campamento Legionarios Invencibles 2024444")
+st.title("Campamento Legionarios Invencibles 2024")
 equipo_seleccionado=st.selectbox("Seleccionar Equipo",lista_equipos)
 
 data=data[data["equipo"]==equipo_seleccionado]
@@ -64,7 +75,6 @@ your_table = Table('puntajes', metadata,
 Session = sessionmaker(bind=engine)
 session = Session()
 
-st.write("hola mundo")
 
 
 
@@ -104,8 +114,60 @@ if col2.button("Restar"):
 
 #dashboard
 
+query_puntajes = f"SELECT * FROM {table_name2};"
+data_puntajes = pd.read_sql_query(query_puntajes, engine)
 
 
+dashboard_data=pd.merge(data_campistas,data_puntajes)
+
+
+
+conditions=[
+    (dashboard_data['categoria']=="Versiculo"),
+    (dashboard_data['categoria']=="Capitulo Grande"),
+    (dashboard_data['categoria']=="Capitulo Pequeño"),
+]
+values=[2,4,3]
+
+dashboard_data['puntos'] = np.select(conditions, values)
+
+dashboard_data['total_puntaje']=dashboard_data["puntos"]*dashboard_data["puntaje"]
+
+dashboard_data.rename(columns={"puntaje":"cantidad_versiculos"},inplace=True)
+
+
+
+
+resumen_equipo_total_puntaje= dashboard_data.groupby(by='equipo')['total_puntaje'].sum()
+resumen_equipo_total_puntaje=resumen_equipo_total_puntaje.to_frame()
+resumen_equipo_total_puntaje=resumen_equipo_total_puntaje.reset_index()
+
+
+resumen_equipo_cantidad_versiculos= dashboard_data.groupby(by='equipo')['cantidad_versiculos'].sum()
+resumen_equipo_cantidad_versiculos=resumen_equipo_cantidad_versiculos.to_frame()
+resumen_equipo_cantidad_versiculos=resumen_equipo_cantidad_versiculos.reset_index()
+
+
+resumenparticipantes=dashboard_data.groupby(by=['nombrecompleto','equipo','categoria'])['cantidad_versiculos'].sum()
+
+
+
+
+
+
+
+st.title("Total de puntaje por equipos")
+st.bar_chart(resumen_equipo_total_puntaje, x="equipo", y="total_puntaje", color='equipo')
+
+
+st.title("Total cantidad versiculos")
+
+st.bar_chart(resumen_equipo_cantidad_versiculos, x="equipo", y="cantidad_versiculos", color='equipo')
+
+
+
+st.title("Resumen por participante")
+st.dataframe(resumenparticipantes)
 
 
 
