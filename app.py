@@ -112,6 +112,7 @@ puntajescampistas=overalldata('campista')['puntaje'].sum()
 
 
 st.write(puntajescampistas)
+st.dataframe(puntajescampistas)
 
 
 
