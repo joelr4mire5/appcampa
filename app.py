@@ -64,6 +64,8 @@ your_table = Table('puntajes', metadata,
 Session = sessionmaker(bind=engine)
 session = Session()
 
+st.write("hola mundo")
+
 
 
 
@@ -97,17 +99,7 @@ if col2.button("Restar"):
 
 
 
-query_puntajes = f"SELECT * FROM {table_name2};"
-data_puntajes = pd.read_sql_query(query, engine)
 
-overalldata = data.merge(data_puntajes, on='nombrecompleto')
-
-puntajesequipo = overalldata('equipo')['puntaje'].sum()
-
-puntajescampistas = overalldata('campista')['puntaje'].sum()
-
-st.write(puntajescampistas)
-st.dataframe(puntajescampistas)
 
 
 #dashboard
