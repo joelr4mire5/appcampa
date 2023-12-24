@@ -8,20 +8,20 @@ import numpy as np
 
 #online
 
-# dbname = "postgres"
-#
-# user = "postgres"
-# password = "Exomeza1995"
-# host = "legendarios-rds.cn4ckqii4e2h.us-east-1.rds.amazonaws.com"
-# port = "5432"
-
-#local
-dbname = "campamento"
+dbname = "postgres"
 
 user = "postgres"
-password = "Team.Lead#2023"
-host = "localhost"
+password = "Exomeza1995"
+host = "legendarios-rds.cn4ckqii4e2h.us-east-1.rds.amazonaws.com"
 port = "5432"
+
+# #local
+# dbname = "campamento"
+#
+# user = "postgres"
+# password = "Team.Lead#2023"
+# host = "localhost"
+# port = "5432"
 
 
 # Create a SQLAlchemy engine
