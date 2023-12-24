@@ -7,11 +7,11 @@ import datetime
 
 
 
-dbname = "campamento"
+dbname = "postgres"
 
 user = "postgres"
-password = "Team.Lead#2023"
-host = "localhost"
+password = "Exomeza1995"
+host = "legendarios-rds.cn4ckqii4e2h.us-east-1.rds.amazonaws.com"
 port = "5432"
 
 
