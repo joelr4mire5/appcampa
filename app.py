@@ -8,11 +8,11 @@ import numpy as np
 
 #online
 
-dbname = "postgres"
+dbname = "campamento"
 
-user = "postgres"
-password = "Exomeza1995"
-host = "legendarios-rds.cn4ckqii4e2h.us-east-1.rds.amazonaws.com"
+user = "science"
+password = "D4t4.Science"
+host = "campamento-legendarios-rds.cn4ckqii4e2h.us-east-1.rds.amazonaws.com"
 port = "5432"
 
 # #local
@@ -127,7 +127,7 @@ conditions=[
     (dashboard_data['categoria']=="Capitulo Grande"),
     (dashboard_data['categoria']=="Capitulo Pequeño"),
 ]
-values=[2,4,3]
+values=[10,150,230]
 
 dashboard_data['puntos'] = np.select(conditions, values)
 
