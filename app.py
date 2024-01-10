@@ -10,9 +10,9 @@ import numpy as np
 
 dbname = "campamento"
 
-user = "science"
-password = "D4t4.Science"
-host = "campamento-legendarios-rds.cl0eowkg6ime.us-east-1.rds.amazonaws.com"
+user = "postgres"
+password = "yNbBq3LBv0yFlIPvVzVl"
+host = "legendarios-rds.cl0eowkg6ime.us-east-1.rds.amazonaws.com"
 port = "5432"
 
 # #local
