@@ -12,7 +12,7 @@ dbname = "campamento"
 
 user = "science"
 password = "D4t4.Science"
-host = "campamento-legendarios-rds.cn4ckqii4e2h.us-east-1.rds.amazonaws.com"
+host = "campamento-legendarios-rds.cl0eowkg6ime.us-east-1.rds.amazonaws.com"
 port = "5432"
 
 # #local
