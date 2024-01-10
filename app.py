@@ -8,7 +8,7 @@ import numpy as np
 
 #online
 
-dbname = "campamento"
+dbname = "legendarios"
 
 user = "postgres"
 password = "yNbBq3LBv0yFlIPvVzVl"
