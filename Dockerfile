@@ -9,9 +9,9 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     software-properties-common \
-    git \
-    libpq-dev \  # Added line for PostgreSQL development libraries
-    && rm -rf /var/lib/apt/lists/*
+    git  \
+    libpq-dev && \ \
+    rm -rf /var/lib/apt/lists/*
 
 # Clone the app repository
 RUN git clone https://github.com/joelr4mire5/appcampa.git .
