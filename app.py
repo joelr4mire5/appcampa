@@ -132,7 +132,11 @@ values=[10,150,230]
 
 dashboard_data['puntos'] = np.select(conditions, values)
 
-dashboard_data.loc[dashboard_data['nombrecompleto'].isin(['Deiand Martinez', 'Sofia Dinarte']), 'puntaje'] = 6
+condition_name = dashboard_data['nombrecompleto'].isin(['Deiand Martinez', 'Sofia Dinarte'])
+condition_puntaje = dashboard_data['puntaje'] == -1
+
+dashboard_data.loc[condition_name, 'puntaje'] = 6
+dashboard_data.loc[condition_puntaje, 'puntaje'] = -6
 
 dashboard_data['total_puntaje']=dashboard_data["puntos"]*dashboard_data["puntaje"]
 
