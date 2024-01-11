@@ -134,7 +134,7 @@ dashboard_data['puntos'] = np.select(conditions, values)
 
 dashboard_data['total_puntaje']=dashboard_data["puntos"]*dashboard_data["puntaje"]
 
-dashboard_data.loc[dashboard_data['nombrecompleto'].isin(['Deiand Martinez', 'Sofia Dinarte']), 'total_puntaje'] *= 6
+st.write(dashboard_data)
 
 dashboard_data.rename(columns={"puntaje":"cantidad_versiculos"},inplace=True)
 
