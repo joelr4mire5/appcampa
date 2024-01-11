@@ -138,7 +138,6 @@ dashboard_data.loc[condition, 'puntaje'] *= 6
 dashboard_data['total_puntaje']=dashboard_data["puntos"]*dashboard_data["puntaje"]
 
 
-st.write(dashboard_data)
 
 dashboard_data.rename(columns={"puntaje":"cantidad_versiculos"},inplace=True)
 
