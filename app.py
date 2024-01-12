@@ -123,12 +123,13 @@ dashboard_data=pd.merge(data_campistas,data_puntajes)
 
 
 conditions=[
-    (dashboard_data['categoria']=="Versiculo"),
+    (dashboard_data['categoria']=="Versiculo" & dashboard_data['equipo']=="Verde"),
+    (dashboard_data['categoria']=="Versiculo" & dashboard_data['equipo']=="Azul"),
     (dashboard_data['categoria']=="Capitulo Grande"),
     (dashboard_data['categoria']=="Capitulo Pequeño"),
 
 ]
-values=[10,150,230]
+values=[10,10.4347826086957,150,230]
 
 dashboard_data['puntos'] = np.select(conditions, values)
 
