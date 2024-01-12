@@ -123,8 +123,8 @@ dashboard_data=pd.merge(data_campistas,data_puntajes)
 
 
 conditions=[
-    (dashboard_data['categoria']=="Versiculo" & dashboard_data['equipo']=="Verde"),
-    (dashboard_data['categoria']=="Versiculo" & dashboard_data['equipo']=="Azul"),
+    (dashboard_data['categoria']=="Versiculo") & (dashboard_data['equipo']=="Verde"),
+    (dashboard_data['categoria']=="Versiculo") & (dashboard_data['equipo']=="Azul"),
     (dashboard_data['categoria']=="Capitulo Grande"),
     (dashboard_data['categoria']=="Capitulo Pequeño"),
 
