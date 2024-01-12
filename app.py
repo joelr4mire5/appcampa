@@ -30,7 +30,7 @@ engine = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{dbname}")
 
 # Example: Query a table and load the data into a Pandas DataFrame
 table_name = "campistas"
-query = f"SELECT * FROM {table_name} ORDER BY nombrecompleto ASCENDING;"
+query = f"SELECT * FROM {table_name} ORDER BY nombrecompleto ASC;"
 
 
 table_name2="puntajes"
