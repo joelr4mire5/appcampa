@@ -133,7 +133,7 @@ values=[10,150,230]
 dashboard_data['puntos'] = np.select(conditions, values)
 
 condition = dashboard_data['nombrecompleto'].isin(['Deiand Martinez', 'Sofia Dinarte'])
-dashboard_data.loc[condition, 'puntaje'] *= 6
+dashboard_data.loc[condition, 'puntaje'] *= 2
 
 dashboard_data['total_puntaje']=dashboard_data["puntos"]*dashboard_data["puntaje"]
 
@@ -174,6 +174,9 @@ st.bar_chart(resumen_equipo_cantidad_versiculos, x="equipo", y="cantidad_versicu
 
 st.title("Resumen por participante")
 st.dataframe(resumenparticipantes)
+
+st.title("Log List")
+st.dataframe(dashboard_data)
 
 
 
