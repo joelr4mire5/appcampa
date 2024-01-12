@@ -142,8 +142,6 @@ dashboard_data['total_puntaje']=dashboard_data["puntos"]*dashboard_data["puntaje
 dashboard_data.rename(columns={"puntaje":"cantidad_versiculos"},inplace=True)
 
 
-
-
 resumen_equipo_total_puntaje= dashboard_data.groupby(by='equipo')['total_puntaje'].sum()
 resumen_equipo_total_puntaje=resumen_equipo_total_puntaje.to_frame()
 resumen_equipo_total_puntaje=resumen_equipo_total_puntaje.reset_index()
