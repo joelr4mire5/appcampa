@@ -175,8 +175,5 @@ st.bar_chart(resumen_equipo_cantidad_versiculos, x="equipo", y="cantidad_versicu
 st.title("Resumen por participante")
 st.dataframe(resumenparticipantes)
 
-st.title("Log List")
-st.dataframe(dashboard_data)
-
 
 
