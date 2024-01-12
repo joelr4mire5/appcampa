@@ -157,9 +157,10 @@ resumen_equipo_cantidad_versiculos=resumen_equipo_cantidad_versiculos.reset_inde
 resumenparticipantes=dashboard_data.groupby(by=['nombrecompleto','equipo','categoria'])['cantidad_versiculos'].sum()
 
 
-dashboard_data = dashboard_data[dashboard_data["nombrecompleto"].str.contains(nombre_selecccionado)]
+dashboard_data_por_participante = dashboard_data[dashboard_data["nombrecompleto"].str.contains(nombre_selecccionado)]
+dashboard_data_por_participante=dashboard_data_por_participante.groupby(by=['nombrecompleto','equipo','categoria'])['total_puntaje'].sum()
 st.title("Resumen por campista")
-st.dataframe(dashboard_data)
+st.dataframe(dashboard_data_por_participante)
 
 st.title("Total de puntaje por equipos")
 st.bar_chart(resumen_equipo_total_puntaje, x="equipo", y="total_puntaje", color='equipo')
