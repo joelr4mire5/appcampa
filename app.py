@@ -131,7 +131,10 @@ conditions=[
 ]
 values=[10,10.4347826086957,150,230]
 
-dashboard_data['puntos'] = np.select(conditions, values)
+
+
+
+dashboard_data['puntos'] = np.select(conditions, values,default=0)
 
 condition = dashboard_data['nombrecompleto'].isin(['Deiand Martinez', 'Sofia Dinarte'])
 dashboard_data.loc[condition, 'puntaje'] *= 2
