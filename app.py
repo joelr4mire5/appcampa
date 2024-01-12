@@ -129,7 +129,7 @@ conditions=[
     (dashboard_data['categoria']=="Capitulo Pequeño"),
 
 ]
-values=[10,10.4347826086957,150,230]
+values=[10.4347826086957,10,150,230]
 
 
 
