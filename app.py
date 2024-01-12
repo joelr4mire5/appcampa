@@ -160,7 +160,9 @@ resumenparticipantes=dashboard_data.groupby(by=['nombrecompleto','equipo','categ
 
 
 
-
+resumen_equipo_total_puntaje=resumen_equipo_total_puntaje["nombrecompleto"==nombre_selecccionado]
+resumen_equipo_cantidad_versiculos=resumen_equipo_cantidad_versiculos["nombrecompleto"==nombre_selecccionado]
+resumenparticipantes=resumenparticipantes["nombrecompleto"==nombre_selecccionado]
 
 st.title("Total de puntaje por equipos")
 st.bar_chart(resumen_equipo_total_puntaje, x="equipo", y="total_puntaje", color='equipo')
