@@ -157,7 +157,7 @@ resumen_equipo_cantidad_versiculos=resumen_equipo_cantidad_versiculos.reset_inde
 resumenparticipantes=dashboard_data.groupby(by=['nombrecompleto','equipo','categoria'])['cantidad_versiculos'].sum()
 
 
-dashboard_data_por_participante=dashboard_data['nombrecompleto'].isin(nombre_selecccionado)
+dashboard_data_por_participante=dashboard_data['nombrecompleto'].isin(list(nombre_selecccionado))
 st.title("Resumen por campista")
 st.dataframe(dashboard_data_por_participante)
 
