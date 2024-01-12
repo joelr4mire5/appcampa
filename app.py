@@ -141,11 +141,6 @@ dashboard_data['total_puntaje']=dashboard_data["puntos"]*dashboard_data["puntaje
 
 dashboard_data.rename(columns={"puntaje":"cantidad_versiculos"},inplace=True)
 
-dashboard_data['date_column'] = pd.to_datetime(dashboard_data['timestamp'], format='%Y-%m-%d %H:%M:%S.%f')
-unique_days = dashboard_data['date_column'].dt.date.unique()
-
-st.write(unique_days)
-
 
 
 
