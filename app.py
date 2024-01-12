@@ -167,13 +167,16 @@ st.bar_chart(resumen_equipo_total_puntaje, x="equipo", y="total_puntaje", color=
 
 
 st.title("Total cantidad versiculos")
-
 st.bar_chart(resumen_equipo_cantidad_versiculos, x="equipo", y="cantidad_versiculos", color='equipo')
 
 
 
 st.title("Resumen por participante")
 st.dataframe(resumenparticipantes)
+
+
+st.title("Tabla Completa de datos")
+st.dataframe(dashboard_data)
 
 
 
