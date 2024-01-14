@@ -136,7 +136,6 @@ values=[10.4347826086957,10,230,150]
 
 dashboard_data['puntos'] = np.select(conditions, values,default=0)
 
-st.write(dashboard_data)
 
 condition = dashboard_data['nombrecompleto'].isin(['Deiand Martinez', 'Sofia Dinarte'])
 dashboard_data.loc[condition, 'puntaje'] *= 2
@@ -151,6 +150,7 @@ dashboard_data.rename(columns={"puntaje":"cantidad_versiculos"},inplace=True)
 resumen_equipo_total_puntaje= dashboard_data.groupby(by='equipo')['total_puntaje'].sum()
 resumen_equipo_total_puntaje=resumen_equipo_total_puntaje.to_frame()
 resumen_equipo_total_puntaje=resumen_equipo_total_puntaje.reset_index()
+st.write(resumen_equipo_total_puntaje)
 
 
 resumen_equipo_cantidad_versiculos= dashboard_data.groupby(by='equipo')['cantidad_versiculos'].sum()
